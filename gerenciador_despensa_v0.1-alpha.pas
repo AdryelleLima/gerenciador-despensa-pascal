@@ -1,7 +1,7 @@
 Program GerenciadorDespensa; // nome do programa. % Mateus 13/06
 
 const
-	MAX_PRODUTOS = 100; // constante para limitar a quantidade m·xima de produtos. % Mateus 13/06
+	MAX_PRODUTOS = 100; // constante para limitar a quantidade m√°xima de produtos. % Mateus 13/06
 	
 type
 	produto = record // cria uma estrutura para representar um produto. % Mateus 13/06
@@ -20,14 +20,14 @@ var
 
 
 // =======================================================================
-// ** FUN«’ES DE BUSCA E ENTRADA (Movidas para cima para evitar erros de compilaÁ„o) ** Hay 17/06
+// ** FUN√á√ïES DE BUSCA E ENTRADA (Movidas para cima para evitar erros de compila√ß√£o) ** Hay 17/06
 // =======================================================================
 
-function getbuscarProduto(nome:string):integer; // ### uma funÁ„o para localizar o produto, mas da para inserir tudo no procedure tbm! ### Vanderlei 15/06 ### 
+function getbuscarProduto(nome:string):integer; // ### uma fun√ß√£o para localizar o produto, mas da para inserir tudo no procedure tbm! ### Vanderlei 15/06 ### 
 var
   i:integer;
 begin
-  getbuscarProduto := 0;//funÁ„o apenas para funÁıes que precisam, n„o aparecer· no menu
+  getbuscarProduto := 0;//fun√ß√£o apenas para fun√ß√µes que precisam, n√£o aparecer√° no menu
 
   for i := 1 to totalEstoque do
     if estoque[i].nome = nome then //talvez melhor por ID
@@ -37,7 +37,7 @@ begin
     end;
 end;
 
-//**FUN«’ES DE CADASTRO *Hayanne 14/06**
+//**FUN√á√ïES DE CADASTRO *Hayanne 14/06**
 function getNome:string;	// **Hayanne 14/06**
 var
 	n:string;
@@ -69,10 +69,10 @@ begin
 end;
 
 // =======================================================================
-// ** PROCEDIMENTOS DE INSER«√O E ATUALIZA«√O ** manter organizaÁ„o para funcionar **Hay 17/06
+// ** PROCEDIMENTOS DE INSER√á√ÉO E ATUALIZA√á√ÉO ** manter organiza√ß√£o para funcionar **Hay 17/06
 // =======================================================================
 
-procedure adicionarNoEstoque(p:produto); //* PROCEDIMENTO DE INSER«√O DAS LISTAS **Hayanne 14/06**
+procedure adicionarNoEstoque(p:produto); //* PROCEDIMENTO DE INSER√á√ÉO DAS LISTAS **Hayanne 14/06**
 begin
 	if(totalEstoque<MAX_PRODUTOS)then
 	begin	
@@ -96,7 +96,7 @@ begin
         writeln('Erro: A lista de compras esta cheia!');
 end;
 
-//+++ PROCEDIMENTO DE EXCLUIR PRODUTOS NO ESTOQUE E NAS LISTAS+++ J˙lia 16/06+++
+//+++ PROCEDIMENTO DE EXCLUIR PRODUTOS NO ESTOQUE E NAS LISTAS+++ J√∫lia 16/06+++
 {procedure excluirProdutoEstoqueLista (nome: string);
 var p: integer; 
  begin
@@ -210,7 +210,7 @@ end;
 // =======================================================================
 
 
-function getMenu:Byte; //**FUN«√O MENU *Hayanne 14/06** MODIFICAR DE ACORDO COM A NECESSIDADE 
+function getMenu:Byte; //**FUN√á√ÉO MENU *Hayanne 14/06** MODIFICAR DE ACORDO COM A NECESSIDADE 
 var
 	op:byte;
 begin
@@ -228,7 +228,7 @@ begin
 	getMenu:=op;
 end;
 
-// FunÁ„o menu estoque. % Mateus 17/06
+// Fun√ß√£o menu estoque. % Mateus 17/06
 function getMenuEstoque:Byte;
 var
 	op1:byte;
@@ -248,7 +248,7 @@ begin
 	getMenuEstoque := op1;
 end;
 
-function getMenuLista:Byte;//**FUN«√O MENU lista de compras *Hay 17/06**  
+function getMenuLista:Byte;//**FUN√á√ÉO MENU lista de compras *Hay 17/06**  
 var
 	op2:byte;
 begin
@@ -268,7 +268,7 @@ begin
 end;
 
 
-function getRegistro:produto; // * FUN«√O GETREGISTRO **Hayanne 14/06**
+function getRegistro:produto; // * FUN√á√ÉO GETREGISTRO **Hayanne 14/06**
 var
 	p:produto;
 	qtd:byte;
@@ -276,7 +276,7 @@ begin
 	 p.nome:= getNome;
 	 p.categoria:= getCategoria;
 	 
-	 qtd:= getQuantidade;//**Guarda o valor em uma vari·vel para n„o chamar a funÁ„o duas vezes *Hayanne 14/06**
+	 qtd:= getQuantidade;//**Guarda o valor em uma vari√°vel para n√£o chamar a fun√ß√£o duas vezes *Hayanne 14/06**
 	 p.quantidade:= qtd;
 	 	
 		 if(qtd > 0)then
@@ -300,7 +300,7 @@ begin
 	begin
 		case(op)of
 			1:begin
-			  	getRegistro;//**CHAMA A FUN«√O DE CADASTRO *Hayanne 14/06** ## Apenas atualizando na ordem do menu ## Vanderlei 15/06 ##
+			  	getRegistro;//**CHAMA A FUN√á√ÉO DE CADASTRO *Hayanne 14/06** ## Apenas atualizando na ordem do menu ## Vanderlei 15/06 ##
 				end;
 			2:begin //%Mateus 17/06%
 			  	op1 := getMenuEstoque;
