@@ -31,7 +31,7 @@ Para este projeto, optamos por não apenas escrever o código, mas documentar vi
 >
 > Isso permitiu que toda a equipe visualizasse, debatesse e fizesse modificações na estrutura lógica do algoritmo ao mesmo tempo, mitigando conflitos de código (*merge conflicts*) e garantindo o aprendizado coletivo antes da consolidação do arquivo final.
 
-![Documentação Técnica e Mapeamento do Código]("C:\Users\adrye\Downloads\documentacao-completa.png")
+![Documentação Técnica e Mapeamento do Código](img/documentacao-completa.png)
 
 ---
 
