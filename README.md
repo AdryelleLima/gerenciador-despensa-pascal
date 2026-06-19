@@ -4,14 +4,26 @@ Um sistema em linha de comando (CLI) desenvolvido em **Pascal** projetado para a
 
 O projeto foi desenvolvido de forma colaborativa como parte de uma atividade prática/acadêmica, aplicando conceitos de estruturas de dados e modularização.
 
+> ⚠️ **Nota de Desenvolvimento:** Este projeto está em sua **fase inicial de desenvolvimento (v0.1-alpha)**. Algumas funcionalidades de exclusão e edição ainda estão sendo implementadas e testadas pela equipe.
+
 ---
 
-## 🚀 Funcionalidades
+## 🚀 Funcionalidades Atuais
 
 - **Cadastro Inteligente:** Ao cadastrar um produto, o sistema avalia a quantidade. Se for maior que zero, vai para o Estoque; se for zero, entra automaticamente na Lista de Compras.
-- **Gestão de Estoque:** Listagem de itens, inserção manual e atualização de quantidades. Se o estoque de um item ficar negativo, o sistema o move automaticamente para a lista de compras.
+- **Gestão de Estoque:** Listagem de itens, inserção manual e atualização de quantidades. Se o estoque de um item ficar de forma inválida/negativa, o sistema o move automaticamente para a lista de compras.
 - **Lista de Compras Automatizada:** Permite listar as necessidades e atualizar o status quando um item é comprado, migrando-o de volta para o estoque de forma dinâmica.
 - **Interface CLI Dinâmica:** Menus e submenus interativos para navegação intuitiva.
+
+---
+
+## 🔮 Próximas Implementações (Melhorias Futuras)
+
+O projeto ainda não é uma versão final. Planejamos implementar as seguintes melhorias em breve:
+- [ ] **Módulo de Exclusão:** Conclusão da lógica para remover completamente produtos do estoque ou da lista de compras.
+- [ ] **Edição de Cadastro:** Permitir alterar o nome e a categoria de um produto sem precisar excluí-lo.
+- [ ] **Persistência de Dados:** Implementar gravação e leitura em arquivos de texto (`.txt` ou `.dat`) para que os dados não sejam perdidos ao fechar o programa.
+- [ ] **Identificação por ID:** Substituir a busca por nome por um identificador único (ID numérico) para evitar problemas com produtos de nomes parecidos.
 
 ---
 
@@ -23,13 +35,23 @@ O projeto foi desenvolvido de forma colaborativa como parte de uma atividade pr�
 
 ---
 
-## 👥 Contribuidores do Projeto
+## 👥 Gestão e Contribuidores do Projeto
 
-Este projeto foi construído a várias mãos! Agradecimento especial à equipe envolvida no desenvolvimento e revisões:
-- **Hayanne Adryelle** (Modularização, criação dos submenus, regras de automação de fluxo e correções).
-- **Mateus** (Estrutura inicial do programa, constantes e controle dos menus de estoque).
-- **Vanderlei** (Funções de busca e ajustes visuais de formatação no console).
-- **Júlia** (Lógica inicial para os módulos de exclusão de produtos).
+Este projeto foi desenvolvido de forma colaborativa utilizando o framework **Scrum** para garantir o alinhamento da equipe, a divisão eficiente de tarefas e a entrega dos resultados dentro do prazo acadêmico. 
+
+A engenharia de processos e a facilitação do time foram lideradas por nossa integrante já graduada em Gestão de TI.
+
+- **[Hayanne Adryelle](https://github.com/AdryelleLima) — Product Owner & Scrum Master / Tech Lead**
+  Responsável pela governança do projeto, organização do backlog, facilitação das reuniões de alinhamento de objetivos e garantia das entregas. Atuou também no desenvolvimento técnico na modularização, submenus, regras de automação de fluxo do sistema e revisão do código.
+
+- **[Mateus](https://github.com/usuario-do-mateus) — Desenvolvedor**
+  Responsável pela arquitetura e estrutura inicial do programa, definição de constantes e controle dos fluxos do menu de estoque.
+
+- **[Vanderlei](https://github.com/usuario-do-vanderlei) — Desenvolvedor**
+  Responsável pela implementação das funções de busca de produtos e refatoração visual do console para melhor experiência do usuário.
+
+- **[Júlia](https://github.com/JuliaLimaB007) — Desenvolvedora**
+  Responsável pelo escopo focado na arquitetura e lógica inicial dos módulos de exclusão de produtos do estoque.
 
 ---
 
