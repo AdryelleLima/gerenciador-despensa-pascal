@@ -4,15 +4,16 @@ Um sistema em linha de comando (CLI) desenvolvido em **Pascal** projetado para a
 
 O projeto foi desenvolvido de forma colaborativa como parte de uma atividade prática/acadêmica, aplicando conceitos de estruturas de dados e modularização.
 
-> ⚠️ **Nota de Desenvolvimento:** Este projeto está em sua **fase inicial de desenvolvimento (v0.1-alpha)**. Algumas funcionalidades de exclusão e edição ainda estão sendo implementadas e testadas pela equipe.
+> ⚠️ **Nota de Desenvolvimento:** Este projeto encontra-se em sua **versão v0.5-beta**. Os módulos principais de cadastro, atualização e exclusão estão totalmente operacionais e integrados.
 
 ---
 
 ## 🚀 Funcionalidades Atuais
 
 - **Cadastro Inteligente:** Ao cadastrar um produto, o sistema avalia a quantidade. Se for maior que zero, vai para o Estoque; se for zero, entra automaticamente na Lista de Compras.
-- **Gestão de Estoque:** Listagem de itens, inserção manual e atualização de quantidades. Se o estoque de um item ficar de forma inválida/negativa, o sistema o move automaticamente para a lista de compras.
-- **Lista de Compras Automatizada:** Permite listar as necessidades e atualizar o status quando um item é comprado, migrando-o de volta para o estoque de forma dinâmica.
+- **Buscador Universal Dinâmico:** Reutilização de lógica através de uma função única de busca que aceita diferentes estruturas de vetores por parâmetro.
+- **Gestão Automática de Fluxo:** Se a quantidade de um item no estoque for atualizada para zero ou negativa, o sistema faz o manejo dinâmico: remove o item do estoque físico e o transfere para a lista de compras.
+- **Módulos de Exclusão Completos (CRUD):** Permite a remoção definitiva de produtos tanto do estoque principal quanto da lista de compras, realizando a reorganização dos índices dos vetores em tempo real.
 - **Interface CLI Dinâmica:** Menus e submenus interativos para navegação intuitiva.
 
 ---
@@ -38,7 +39,6 @@ Para este projeto, optamos por não apenas escrever o código, mas documentar vi
 ## 🔮 Próximas Implementações (Melhorias Futuras)
 
 O projeto ainda não é uma versão final. Planejamos implementar as seguintes melhorias em breve:
-- [ ] **Módulo de Exclusão:** Conclusão da lógica para remover completamente produtos do estoque ou da lista de compras.
 - [ ] **Edição de Cadastro:** Permitir alterar o nome e a categoria de um produto sem precisar excluí-lo.
 - [ ] **Persistência de Dados:** Implementar gravação e leitura em arquivos de texto (`.txt` ou `.dat`) para que os dados não sejam perdidos ao fechar o programa.
 - [ ] **Identificação por ID:** Substituir a busca por nome por um identificador único (ID numérico) para evitar problemas com produtos de nomes parecidos.
