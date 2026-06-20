@@ -23,14 +23,14 @@ var
 // ** FUNÇÕES DE BUSCA E ENTRADA (Movidas para cima para evitar erros de compilação) ** Hay 17/06
 // =======================================================================
 
-function getbuscarProduto(nome:string):integer; // ### uma função para localizar o produto, mas da para inserir tudo no procedure tbm! ### Vanderlei 15/06 ### 
+function getbuscarProduto(nome: string; var vetor: tipoVetor; total: integer):integer; // ### uma função para localizar o produto, mas da para inserir tudo no procedure tbm! ### Vanderlei 15/06 ### 
 var
   i:integer;
 begin
   getbuscarProduto := 0;//função apenas para funções que precisam, não aparecerá no menu
 
-  for i := 1 to totalEstoque do
-    if estoque[i].nome = nome then //talvez melhor por ID
+  for i := 1 to total do
+    if vetor[i].nome = nome then //talvez melhor por ID, mas atualizei para ser universal **Hay 19/06
     begin
       getbuscarProduto := i;
       exit;
@@ -96,39 +96,93 @@ begin
         writeln('Erro: A lista de compras esta cheia!');
 end;
 
-//+++ PROCEDIMENTO DE EXCLUIR PRODUTOS NO ESTOQUE E NAS LISTAS+++ Júlia 16/06+++
-{procedure excluirProdutoEstoqueLista (nome: string);
-var p: integer; 
- begin
- 
- p := getbuscarProduto(nome);
- 
- if () then }
+//+++ PROCEDIMENTO DE EXCLUIR PRODUTOS NO ESTOQUE  +++ Júlia 16/06+++
+procedure excluirProdutoEstoque;
+var
+  p,i: integer;
+  nome: string;
+
+begin
+
+  writeln('Digite o produto que deseja excluir do estoque:');
+  readln(nome);
+
+  p := getbuscarProduto(nome, estoque, totalEstoque);//agora procura por vetor **Hay 19/06
+
+  if (p > 0) then
+  begin
+
+    for i := p to totalEstoque - 1 do
+      estoque[i] := estoque[i+1];
+
+    totalEstoque := totalEstoque - 1;
+
+    writeln('Produto excluido do estoque com sucesso!');
+
+  end
+
+  else
+    writeln('Produto nao encontrado no estoque.');
+
+end;
+
+//+++ PROCEDIMENTO DE EXCLUIR PRODUTOS NA LISTA DE COMPRAS  +++ Júlia 19/06+++
+procedure excluirProdutoLista;
+var
+  p,i: integer;
+  nome: string;
+
+begin
+
+  writeln('Digite o produto que deseja excluir da lista:');
+  readln(nome);
+  
+	p := getbuscarProduto(nome, listaCompras, totalListaCompras); //atualizado, agora procura no buscador universal **Hay 19/06**
+  
+  if (p > 0) then
+  begin
+
+    for i := p to totalListaCompras - 1 do
+      listaCompras[i] := listaCompras[i+1];
+
+    totalListaCompras := totalListaCompras - 1;
+
+    writeln('Produto excluido da lista de compras com sucesso!');
+
+  end
+
+  else
+    writeln('Produto nao encontrado na lista de compras.');
+
+end;
 
 procedure atualizarEstoque; // ### atualizar estoque. Obs.: Apenas altera a quantidade! ### Vanderlei 15/06 ### 
 var
   nome:string;
   posicao:integer;
   novaQtd:integer;
+  i:integer;
 begin
   writeln('Nome do produto: ');
   readln(nome);
 
-  posicao := getbuscarProduto(nome);
+  posicao := getbuscarProduto(nome, estoque, totalEstoque);//atualizado **Hay 19/06**
 
   if posicao <> 0 then
   begin
     writeln('Nova quantidade: ');
     readln(novaQtd);
-			if(novaQtd >= 0)then // agora vai automaticamente para lista se quantidade negativa **Hay 17/06
+			if(novaQtd > 0)then // agora vai automaticamente para lista se quantidade negativa **Hay 17/06
 	 	 		begin
 					estoque[posicao].quantidade := novaQtd;
 	 	 			writeln('Estoque atualizado com sucesso!');
 	 	 		end
 	 		else
-	    	begin
-					estoque[posicao].quantidade := novaQtd; 
-     			adicionarNaLista(estoque[posicao]); 
+	    	begin //EXCLUI DO ESTOQUE: Puxa os produtos da frente uma posição para trás **Hay 19/06**
+     			adicionarNaLista(estoque[posicao]);
+     			for i := posicao to totalEstoque - 1 do
+        	estoque[i] := estoque[i+1];
+        	totalEstoque := totalEstoque - 1;
     	  	writeln('Quantidade negativa detectada! Produto enviado para a lista de compras.');
         end;
 	end
@@ -153,13 +207,13 @@ begin
     	write('digite a quantidade que foi comprada: ');
     	readln(qtdComprada);
     	
-			posicaoEstoque := getbuscarProduto(nome);
+			posicaoEstoque := getbuscarProduto(nome, estoque, totalEstoque); // atualizado **Hay 19/06**
       
       if posicaoEstoque <> 0 then //**agora adiciona automaticamente no estoque de acordo com a quantidade comprada. **Hay 17/06**
-      	estoque[posicaoEstoque].quantidade := qtdComprada
-      else
-      	writeln('Aviso: Produto nao encontrado no estoque principal para atualizar.');
-			
+      	estoque[posicaoEstoque].quantidade := estoque[posicaoEstoque].quantidade + qtdComprada//atualizei **Hay 19/06**
+      else //adicionei **Hay 19/06**
+    		listaCompras[i].quantidade := qtdComprada;
+        adicionarNoEstoque(listaCompras[i]);
 			// Remove da lista reorganizando o vetor
 			for j:=i to totalListaCompras - 1 do
         listaCompras[j] := listaCompras[j+1];
@@ -237,7 +291,7 @@ begin
 	repeat
 		writeln('========== Estoque ==========');
 		writeln('1. Listar produtos');
-		writeln('2. Adicionar produto');
+		writeln('2. Alterar Nome e Categoria');
 		writeln('3. Atualizar quantidade');
 		writeln('4. Excluir produto');
 		writeln('0. Voltar');
@@ -312,13 +366,13 @@ begin
 							 		listarEstoque;
 							 	end;	
 							2:begin
-									getRegistro;
+									writeln('Opcao em desenvolvimento...');
 							  end;
 							3:begin
 									atualizarEstoque;
 							  end;
 							4:begin
-									writeln('Opcao em desenvolvimento...');{ excluir produto}	
+									excluirProdutoEstoque;
 								end;							
 						end;
 						op1 := getMenuEstoque;  
@@ -339,7 +393,7 @@ begin
 								   atualizarListaCompras;
 									end;
 								4:begin
-								   writeln('Opcao em desenvolvimento...');
+								   excluirProdutoLista;
 									end;		
 						 	end;
 						 	op2 := getMenuLista;
