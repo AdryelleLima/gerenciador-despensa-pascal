@@ -65,13 +65,13 @@ A engenharia de processos e a facilitação do time foram lideradas por nossa in
 - **[Hayanne Adryelle](https://github.com/AdryelleLima) — Product Owner, Scrum Master & Tech Lead**
   Responsável pela governança do projeto, organização do backlog, facilitação das reuniões de alinhamento de objetivos e garantia das entregas. Atuou também no desenvolvimento técnico na modularização, submenus, arquitetura da persistência em arquivos TXT, criação do buscador universal de vetores por parâmetro, regras de automação de fluxo do sistema e revisão final do código de versionamento.
   
-- **[Mateus](https://github.com/usuario-do-mateus) — Desenvolvedor de Infraestrutura**
+- **[Mateus de Paula](https://github.com/usuario-do-mateus) — Desenvolvedor de Infraestrutura**
   Responsável pela arquitetura e estrutura inicial do programa,definição das constantes de limites, mitigação de impedimentos técnicos do time, controle dos fluxos do menu de estoque e loops de validação do menu principal.
 
-- **[Vanderlei](https://github.com/usuario-do-vanderlei) — Desenvolvedor de Lógica**
+- **[Vanderlei Silva](https://github.com/usuario-do-vanderlei) — Desenvolvedor de Lógica**
   Responsável pela implementação do sistema de identificação única (ID), criação do buscador, desenvolvimento dos módulos de alteração cadastral, mitigação de impedimentos técnicos do time e refatoração visual do console.
 
-- **[Júlia](https://github.com/JuliaLimaB007) — Desenvolvedora de Módulos**
+- **[Júlia Barbosa](https://github.com/JuliaLimaB007) — Desenvolvedora de Módulos**
   Responsável pelo escopo focado na arquitetura e lógica inicial dos módulos de exclusão física de produtos e organização do fluxo de limpeza de vetores.
 
 ---
