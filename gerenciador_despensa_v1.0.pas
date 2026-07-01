@@ -496,9 +496,9 @@ begin
   
   MenuEstoque := op1;
 end;
-//**FUNÇÃO MENU lista de compras *Hay 17/06**
-var
+//**FUNÇÃO MENU lista de compras *Hay 17/06**
 function MenuLista:Byte;
+var
 op2:byte;
 begin
   writeln;
